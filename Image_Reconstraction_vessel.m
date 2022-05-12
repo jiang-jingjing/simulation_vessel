@@ -14,7 +14,7 @@ fn_mesh = 'mesh_HeadTop_fine.mat';
 
 % % mesh from Djazia
 % mesh_old = load_mesh('/home/jingjing/Documents/code2022/IR_vessel/fromDjazia/Mesh/img_1_nirfast_mesh')
-
+nirfast2vtk('mesh_old', mesh_old)
 %% create a mesh 
 addpath(genpath(pathNirfast8))
 % load source and detectors
