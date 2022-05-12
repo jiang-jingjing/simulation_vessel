@@ -11,6 +11,10 @@ pathNirfast8 = '//home/jingjing/Documents/SoftwarePackages/nirfast8';
 fn_mesh = 'mesh_HeadTop_fine.mat';
 % mesh=load(fn_mesh);
 % mesh = mesh.mesh;
+
+% % mesh from Djazia
+% mesh_old = load_mesh('/home/jingjing/Documents/code2022/IR_vessel/fromDjazia/Mesh/img_1_nirfast_mesh')
+
 %% create a mesh 
 addpath(genpath(pathNirfast8))
 % load source and detectors
