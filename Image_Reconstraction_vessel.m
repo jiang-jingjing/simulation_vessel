@@ -22,7 +22,7 @@ path_mask = {fldr_mask, fn_mask, type_mask}
 pos.center = modelCenter;
 pos.src.coordinates = PosSrcFEM;
 pos.det.coordinates = PosDetFEM;
-mesh = create_mesh_HeadTop(pos, path_mask,  2, 1 , 1, 2);
+mesh = create_mesh_HeadTop(pos, path_mask,  2, 1.5 , 1.5, 2);
 mesh.region = mesh.region-1;
 save(fn_mesh,'mesh')
 %% visualize mesh with sources and detectors
