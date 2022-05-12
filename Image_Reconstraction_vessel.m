@@ -7,24 +7,24 @@ pathNirfaster = '/home/jingjing/Documents/SoftwarePackages/Nirfaster';
 pathNirfast8 = '//home/jingjing/Documents/SoftwarePackages/nirfast8';
 
 %% load the mesh
-addpath(genpath(pathNirfast8))
-fn_mesh = 'mesh_HeadTop_fine.mat';
-mesh=load(fn_mesh);
-mesh = mesh.mesh;
-%% create a mesh 
 % addpath(genpath(pathNirfast8))
-% % load source and detectors
-% load('detSrcPosFEM.mat')
-% fldr_mask = './fromDjazia/Test1/bmp/';
-% fn_mask = 'img_1';
-% type_mask = '.bmp';
-% path_mask = {fldr_mask, fn_mask, type_mask}
-% pos.center = modelCenter;
-% pos.src.coordinates = PosSrcFEM;
-% pos.det.coordinates = PosDetFEM;
-% mesh = create_mesh_HeadTop(pos, path_mask,  2, 1.5, 1.5, 2);
-% mesh.region = mesh.region-1;
-% save(fn_mesh,'mesh')
+fn_mesh = 'mesh_HeadTop_fine.mat';
+% mesh=load(fn_mesh);
+% mesh = mesh.mesh;
+%% create a mesh 
+addpath(genpath(pathNirfast8))
+% load source and detectors
+load('detSrcPosFEM.mat')
+fldr_mask = '../fromDjazia/Test1/bmp/';
+fn_mask = 'img_1';
+type_mask = '.bmp';
+path_mask = {fldr_mask, fn_mask, type_mask}
+pos.center = modelCenter;
+pos.src.coordinates = PosSrcFEM;
+pos.det.coordinates = PosDetFEM;
+mesh = create_mesh_HeadTop(pos, path_mask,  2, 1 , 1, 2);
+mesh.region = mesh.region-1;
+save(fn_mesh,'mesh')
 %% visualize mesh with sources and detectors
 h_mesh = figure()
 % plot boundary nodes
@@ -69,6 +69,14 @@ sources2vtk([fn_mesh_anom '_source'] ...
     ,mesh_1)
 detectors2vtk([fn_mesh_anom '_detectors'],mesh_1)
 
+
+
+
+%% check bmps
+gis_args.medfilter=1;
+[mask param] = GetImageStack([fldr_mask '/' fn_mask type_mask],...
+    gis_args);
+volumeViewer(mask)
 
 
 
