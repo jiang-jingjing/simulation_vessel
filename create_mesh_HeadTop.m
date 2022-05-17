@@ -1,4 +1,6 @@
-function mesh = create_mesh_HeadTop(pos, path_mask, facet_distance, ...
+function mesh = create_mesh_HeadTop(pos, ...
+    path_mask, voxel, ...
+    facet_distance, ...
     facet_size, cell_size, cell_radius_edge)
 gis_args.medfilter=1;
 fldr_mask = path_mask{1};
@@ -22,10 +24,14 @@ param.cell_size = cell_size;
 param.cell_radius_edge = cell_radius_edge;
 param.special_subdomain_label = (0);
 param.special_subdomain_size  = (0);
+% 
+sx=voxel.sx;
+sy=voxel.sy;
+sz=voxel.sz;
 
-sx=(1);
-sy=(1);
-sz=(1);
+% sx=0.39;
+% sy=0.39;
+% sz=0.55;
 
 param.PixelDimensions(1) = sx;
 param.PixelDimensions(2) = sy;
